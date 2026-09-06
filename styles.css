@@ -355,14 +355,14 @@ em { color: var(--blue); font-style: normal; }
   height: 56px;
   place-items: center;
   color: var(--white);
-  background: #167d44;
-  border: 3px solid var(--white);
+  background: #22c55e;
+  border: 0;
   border-radius: 50%;
-  box-shadow: 0 10px 28px rgba(16, 24, 40, .24);
-  font-weight: 800;
-  font-size: .82rem;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, .2);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-.whatsapp-float:hover { background: #116b39; }
+.whatsapp-float:hover { transform: translateY(-2px) scale(1.035); box-shadow: 0 10px 26px rgba(0, 0, 0, .26); }
+.whatsapp-float .whatsapp-mark { width: 36px; height: 36px; display: block; fill: currentColor; }
 .cookie-pending .whatsapp-float { bottom: 150px; }
 
 footer { padding: 35px 0 22px; border-top: 1px solid var(--line); }
