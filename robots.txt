@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://funildigital.com.br/sitemap.xml
