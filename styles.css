@@ -301,6 +301,9 @@ em { color: var(--blue); font-style: normal; }
 .method-grid { position: relative; z-index: 1; display: grid; grid-template-columns: .8fr 1.2fr; gap: 95px; }
 .light { color: #adc4fa; }
 .method p { color: #c5d0e5; }
+.method-intro .method-timing { display: flex; align-items: flex-start; flex-direction: column; margin: 30px 0 8px; padding: 18px 20px; color: var(--white); background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .14); border-radius: 16px; }
+.method-timing strong { font-family: "Manrope", system-ui, sans-serif; font-size: 1.05rem; }
+.method-timing span { margin-top: 3px; color: #aebddd; font-size: .86rem; }
 .method h2 em, .contact h2 em {
   background: linear-gradient(100deg, #6a9dff, var(--pink), var(--orange));
   background-clip: text;
