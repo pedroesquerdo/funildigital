@@ -195,10 +195,16 @@
             <p class="eyebrow">Projetos selecionados</p>
             <h2 id="titulo-projetos">Presença digital construída para gerar <em>autoridade.</em></h2>
           </div>
-          <p>Estratégia, conteúdo e tecnologia reunidos em projetos pensados para o contexto de cada negócio.</p>
+          <div class="projects-heading-side">
+            <p>Estratégia, conteúdo e tecnologia reunidos em projetos pensados para o contexto de cada negócio.</p>
+            <div class="project-controls" aria-label="Navegação dos projetos">
+              <button type="button" data-project-prev aria-controls="project-track" aria-label="Ver projeto anterior">←</button>
+              <button type="button" data-project-next aria-controls="project-track" aria-label="Ver próximo projeto">→</button>
+            </div>
+          </div>
         </div>
 
-        <div class="project-list">
+        <div class="project-list" id="project-track" tabindex="0" aria-label="Projetos da Funil Digital">
           <article class="project-case">
             <a class="project-visual" href="https://poltronieriealves.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Acessar o site da Poltronieri & Alves">
               <img src="assets/case-poltronieri-alves.webp" width="1348" height="926" loading="lazy" alt="Página inicial do site Poltronieri & Alves Advogados Associados">

@@ -241,25 +241,47 @@ em { color: var(--blue); font-style: normal; }
   margin-bottom: 64px;
 }
 .projects-heading h2 { max-width: 800px; }
-.projects-heading > p { margin: 0 0 8px; color: var(--muted); font-size: 1.05rem; }
-.project-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-.project-case {
+.projects-heading-side > p { margin: 0 0 24px; color: var(--muted); font-size: 1.05rem; }
+.project-controls { display: flex; gap: 10px; }
+.project-controls button { display: grid; width: 48px; height: 48px; padding: 0; place-items: center; color: var(--ink); background: var(--white); border: 1px solid #cdd7e7; border-radius: 50%; cursor: pointer; font-size: 1.2rem; transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
+.project-controls button:hover:not(:disabled) { color: var(--white); background: var(--blue); border-color: var(--blue); transform: translateY(-2px); }
+.project-controls button:disabled { cursor: not-allowed; opacity: .38; }
+.project-list {
   display: flex;
+  gap: 24px;
+  margin: -14px -12px -30px;
+  padding: 14px 12px 42px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.project-list::-webkit-scrollbar { display: none; }
+.project-list::after { content: ""; flex: 0 0 126px; }
+.project-case {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, .88fr);
+  flex: 0 0 calc(100% - 150px);
   min-width: 0;
   overflow: hidden;
-  flex-direction: column;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 28px;
-  box-shadow: 0 18px 45px rgba(23, 45, 82, .09);
+  box-shadow: 0 22px 50px rgba(23, 45, 82, .15);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  transition: box-shadow .25s ease, transform .25s ease;
 }
+.project-case:hover { box-shadow: 0 28px 62px rgba(23, 45, 82, .2); transform: translateY(-3px); }
 .project-visual {
-  display: block;
+  display: grid;
   min-width: 0;
   padding: 8px;
   overflow: hidden;
+  place-items: center;
   background: #eef3fb;
-  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
 }
 .project-visual img {
   display: block;
@@ -271,7 +293,7 @@ em { color: var(--blue); font-style: normal; }
   transition: transform .35s ease;
 }
 .project-visual:hover img { transform: scale(1.012); }
-.project-content { display: flex; min-height: 330px; padding: 32px 34px 34px; flex-direction: column; }
+.project-content { display: flex; min-height: 360px; padding: 38px 38px 34px; flex-direction: column; }
 .project-type {
   margin: 0 0 14px;
   color: var(--blue);
@@ -499,12 +521,24 @@ footer { padding: 35px 0 22px; border-top: 1px solid var(--line); }
   .hero-copy { padding-top: 50px; }
   .hero-visual { height: 510px; }
   .heading, .projects-heading { grid-template-columns: 1fr; gap: 18px; }
+  .projects-heading-side { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; }
+  .projects-heading-side > p { max-width: 620px; margin-bottom: 0; }
+  .project-case { grid-template-columns: 1.08fr .92fr; flex-basis: calc(100% - 90px); }
+  .project-list::after { flex-basis: 66px; }
+  .project-content { padding: 30px; }
   .service-primary { grid-template-columns: 1fr; gap: 38px; }
   .method-grid, .why-grid, .faq-grid { gap: 58px; }
   .contact-card { gap: 42px; }
   .founder-panel { width: min(560px, 100%); height: 520px; }
   .footer-main { grid-template-columns: 205px 1fr; }
   .footer-main > a:last-child { grid-column: 2; justify-self: end; }
+}
+
+@media (max-width: 760px) {
+  .project-case { grid-template-columns: 1fr; flex-basis: calc(100% - 54px); }
+  .project-list::after { flex-basis: 30px; }
+  .project-visual { border-right: 0; border-bottom: 1px solid var(--line); }
+  .project-content { min-height: 0; }
 }
 
 @media (max-width: 620px) {
@@ -539,7 +573,10 @@ footer { padding: 35px 0 22px; border-top: 1px solid var(--line); }
   .service-item h3 { margin-top: 38px; }
   .projects { padding-top: 28px; }
   .projects-heading { margin-bottom: 42px; }
-  .project-list { grid-template-columns: 1fr; gap: 24px; }
+  .projects-heading-side { align-items: flex-start; flex-direction: column; }
+  .project-list { gap: 14px; margin-inline: -8px; padding-inline: 8px; }
+  .project-case { flex-basis: calc(100% - 38px); }
+  .project-list::after { flex-basis: 24px; }
   .project-content { min-height: 0; padding: 26px 24px 28px; }
   .project-visual { padding: 6px; border-radius: 19px; }
   .project-visual img { border-radius: 14px; }

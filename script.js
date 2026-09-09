@@ -93,3 +93,38 @@ document.querySelector('#contact-form').addEventListener('submit', (event) => {
   const message = `Olá, Pedro! Meu nome é ${name} e falo pela ${company}. Meu WhatsApp é ${phone}. Quero conversar sobre: ${interest}.`;
   window.location.href = `https://wa.me/5517992179836?text=${encodeURIComponent(message)}`;
 });
+
+const projectTrack = document.querySelector('#project-track');
+const projectPrev = document.querySelector('[data-project-prev]');
+const projectNext = document.querySelector('[data-project-next]');
+
+if (projectTrack && projectPrev && projectNext) {
+  const projectStep = () => {
+    const card = projectTrack.querySelector('.project-case');
+    const gap = Number.parseFloat(getComputedStyle(projectTrack).gap) || 0;
+    return card ? card.getBoundingClientRect().width + gap : projectTrack.clientWidth;
+  };
+
+  const updateProjectControls = () => {
+    const maxScroll = projectTrack.scrollWidth - projectTrack.clientWidth;
+    const hasMultipleProjects = projectTrack.querySelectorAll('.project-case').length > 1;
+    projectPrev.disabled = !hasMultipleProjects || projectTrack.scrollLeft <= 2;
+    projectNext.disabled = !hasMultipleProjects || projectTrack.scrollLeft >= maxScroll - 2;
+  };
+
+  const moveProjects = (direction) => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    projectTrack.scrollBy({ left: projectStep() * direction, behavior: reducedMotion ? 'auto' : 'smooth' });
+  };
+
+  projectPrev.addEventListener('click', () => moveProjects(-1));
+  projectNext.addEventListener('click', () => moveProjects(1));
+  projectTrack.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    moveProjects(event.key === 'ArrowRight' ? 1 : -1);
+  });
+  projectTrack.addEventListener('scroll', updateProjectControls, { passive: true });
+  window.addEventListener('resize', updateProjectControls);
+  updateProjectControls();
+}
