@@ -297,8 +297,9 @@
       <div class="container contact-card">
         <div class="contact-copy">
           <p class="eyebrow light">Vamos conversar?</p>
-          <h2 id="titulo-contato">Pronto para transformar cliques em <em>oportunidades?</em></h2>
-          <p>Conte um pouco sobre seu negócio. Vamos entender o momento da sua marca e identificar o melhor próximo passo.</p>
+          <h2 id="titulo-contato">O que sua marca precisa <em>agora?</em></h2>
+          <p>Conte brevemente sobre o seu negócio. Você fala diretamente com Pedro para entender a necessidade e definir um próximo passo possível.</p>
+          <p class="contact-response"><span aria-hidden="true"></span> Mensagens respondidas no mesmo dia</p>
           <address>
             <a href="https://www.instagram.com/funildigital.mkt/" target="_blank" rel="noopener noreferrer"><strong>Instagram:</strong> @funildigital.mkt <span aria-hidden="true">↗</span></a>
             <a href="https://wa.me/5517992179836" target="_blank" rel="noopener noreferrer"><strong>WhatsApp:</strong> (17) 99217-9836 <span aria-hidden="true">↗</span></a>
@@ -306,21 +307,27 @@
         </div>
         <form id="contact-form">
           <label for="nome">Seu nome</label>
-          <input id="nome" name="nome" autocomplete="name" placeholder="Como podemos te chamar?" required>
+          <input id="nome" name="nome" autocomplete="name" placeholder="Como posso te chamar?" required>
+
+          <label for="empresa">Empresa ou negócio</label>
+          <input id="empresa" name="empresa" autocomplete="organization" placeholder="Nome da sua marca" required>
 
           <label for="whatsapp">Seu WhatsApp</label>
           <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required>
 
           <label for="interesse">Sobre o que quer conversar?</label>
-          <select id="interesse" name="interesse">
-            <option>Gestão de tráfego pago</option>
-            <option>Estratégia de conversão</option>
-            <option>Criação de site, domínio e SEO</option>
+          <select id="interesse" name="interesse" required>
+            <option value="" selected disabled>Selecione uma opção</option>
+            <option>Criação de um site completo</option>
+            <option>Tráfego pago</option>
+            <option>Copy</option>
+            <option>SEO</option>
+            <option>Domínio ou Analytics</option>
             <option>Quero entender o que preciso</option>
           </select>
 
-          <button class="button gradient-button" type="submit">Solicitar análise pelo WhatsApp <span aria-hidden="true">↗</span></button>
-          <p class="form-note">Você revisará a mensagem antes de enviá-la.</p>
+          <button class="button gradient-button" type="submit">Continuar no WhatsApp <span aria-hidden="true">↗</span></button>
+          <p class="form-note">A mensagem será preparada para você revisar antes do envio.</p>
         </form>
       </div>
     </section>

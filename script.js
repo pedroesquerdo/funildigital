@@ -87,8 +87,9 @@ document.querySelector('#contact-form').addEventListener('submit', (event) => {
   event.preventDefault();
   const data = new FormData(event.currentTarget);
   const name = String(data.get('nome')).trim();
+  const company = String(data.get('empresa')).trim();
   const phone = String(data.get('whatsapp')).trim();
   const interest = String(data.get('interesse')).trim();
-  const message = `Olá! Meu nome é ${name}. Meu WhatsApp é ${phone}. Tenho interesse em: ${interest}.`;
+  const message = `Olá, Pedro! Meu nome é ${name} e falo pela ${company}. Meu WhatsApp é ${phone}. Quero conversar sobre: ${interest}.`;
   window.location.href = `https://wa.me/5517992179836?text=${encodeURIComponent(message)}`;
 });

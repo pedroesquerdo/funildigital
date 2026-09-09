@@ -375,6 +375,8 @@ em { color: var(--blue); font-style: normal; }
 }
 .contact-copy, .contact form { position: relative; z-index: 1; }
 .contact-copy > p { color: #c5d0e5; }
+.contact-copy .contact-response { display: inline-flex; min-height: 38px; align-items: center; gap: 9px; margin: 12px 0 28px; padding: 7px 13px; color: #eaf0ff; background: rgba(255, 255, 255, .09); border: 1px solid rgba(255, 255, 255, .15); border-radius: 999px; font-size: .88rem; font-weight: 700; }
+.contact-response span { width: 8px; height: 8px; flex: 0 0 auto; background: #66e39a; border-radius: 50%; box-shadow: 0 0 0 4px rgba(102, 227, 154, .12); }
 .contact address { display: flex; flex-direction: column; gap: 8px; font-style: normal; }
 .contact address a { width: fit-content; min-height: 36px; }
 .contact form { padding: 28px; color: var(--ink); background: var(--white); border-radius: 23px; }
