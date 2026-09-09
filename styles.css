@@ -214,7 +214,11 @@ em { color: var(--blue); font-style: normal; }
 .service-label { margin: 0 0 18px; font-size: .72rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .service-primary .service-label { color: #c9d9ff; }
 .service-primary h3 { margin: 0 0 18px; font-family: "Manrope", system-ui, sans-serif; font-size: clamp(2rem, 4vw, 3.15rem); line-height: 1; }
-.service-primary-copy > p:last-child { max-width: 610px; margin-bottom: 0; color: #e7eeff; font-size: 1.05rem; }
+.service-primary-copy .service-description { max-width: 610px; margin-bottom: 0; color: #e7eeff; font-size: 1.05rem; }
+.service-primary-copy .service-price { display: flex; align-items: flex-start; flex-direction: column; margin: 34px 0 0; color: var(--white); }
+.service-price span { color: #c9d9ff; font-size: .75rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+.service-price strong { margin: 2px 0 4px; font: 800 clamp(2rem, 4vw, 3rem)/1 "Manrope", system-ui, sans-serif; letter-spacing: -.04em; }
+.service-price small { max-width: 390px; color: #dce7ff; font-size: .78rem; }
 .service-primary-details { display: flex; align-items: flex-start; flex-direction: column; justify-content: space-between; }
 .service-primary-details ul { width: 100%; margin: 0 0 30px; padding: 0; border-top: 1px solid rgba(255, 255, 255, .25); list-style: none; }
 .service-primary-details li { padding: 13px 0; color: #edf2ff; border-bottom: 1px solid rgba(255, 255, 255, .18); }
