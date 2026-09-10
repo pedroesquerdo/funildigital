@@ -1,7 +1,12 @@
 const projectShowcaseStyles = document.createElement('link');
 projectShowcaseStyles.rel = 'stylesheet';
-projectShowcaseStyles.href = 'projects-showcase.css?v=20260910-2';
+projectShowcaseStyles.href = 'projects-showcase.css?v=20260910-3';
 document.head.appendChild(projectShowcaseStyles);
+
+const visualPolishStyles = document.createElement('link');
+visualPolishStyles.rel = 'stylesheet';
+visualPolishStyles.href = 'visual-polish.css?v=20260910-1';
+document.head.appendChild(visualPolishStyles);
 
 const menuButton = document.querySelector('.menu-button');
 const menu = document.querySelector('#menu-principal');
