@@ -360,7 +360,7 @@ em { color: var(--blue); font-style: normal; }
   text-transform: uppercase;
 }
 .project-content h3 { grid-area: title; margin: 11px 0 8px; font-family: "Manrope", sans-serif; font-size: clamp(1.55rem, 2.6vw, 1.9rem); line-height: 1.08; }
-.project-content > p { grid-area: description; margin: 0; color: var(--muted); font-size: .96rem; }
+.project-content > p:not(.project-type) { grid-area: description; margin: 0; color: var(--muted); font-size: .96rem; }
 .project-scope { display: flex; grid-area: scope; flex-wrap: wrap; gap: 0; margin: 15px 0 0; padding: 13px 0 0; border-top: 1px solid var(--line); list-style: none; }
 .project-scope li { display: inline-flex; align-items: center; color: #66738a; font-size: .75rem; font-weight: 700; letter-spacing: .035em; text-transform: uppercase; }
 .project-scope li:not(:last-child)::after { content: "·"; margin: 0 8px; color: #aab4c4; }
@@ -640,7 +640,7 @@ footer { padding: 35px 0 22px; border-top: 1px solid var(--line); }
   .project-visual { height: clamp(190px, 53vw, 280px); flex-basis: clamp(190px, 53vw, 280px); }
   .project-content { min-height: 0; padding: 19px 19px 21px; }
   .project-content h3 { font-size: 1.5rem; }
-  .project-content > p { font-size: .92rem; }
+  .project-content > p:not(.project-type) { font-size: .92rem; }
   .project-scope { margin-top: 16px; padding-top: 13px; }
   .method-grid, .why-grid, .faq-grid { gap: 45px; }
   .founder-panel { height: 430px; }
