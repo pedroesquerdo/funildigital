@@ -1,4 +1,42 @@
-/* Project showcase layout: deck on the left, case content on the right. */
+/* Project showcase: visual deck + independent editorial copy. */
+.projects-heading-side .project-controls { display: none; }
+
+.project-list > .project-controls {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  gap: 10px;
+}
+
+/* The case itself no longer moves: only the visual card does. */
+.project-case,
+.project-case.is-active,
+.project-case.is-next,
+.project-case.is-far,
+.project-case.is-active:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.project-case {
+  transition: none;
+}
+
+.project-content {
+  transition: opacity .14s ease;
+}
+
+.project-case:not(.is-active) .project-content {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.project-case.is-active .project-content {
+  opacity: 1;
+  visibility: visible;
+}
+
 @media (min-width: 761px) {
   .projects-heading {
     margin-bottom: 58px;
@@ -9,16 +47,19 @@
   }
 
   .project-list {
+    position: relative;
+    isolation: isolate;
     width: 100%;
     max-width: none;
     margin: -12px 0 -8px;
-    padding: 12px 0 42px;
+    padding: 12px 0 82px;
   }
 
+  /* Background cards remain decorative and reinforce the deck metaphor. */
   .project-list::before,
   .project-list::after {
     top: 30px;
-    bottom: 32px;
+    bottom: 72px;
     left: 18px;
     width: min(545px, 47%);
     border-radius: 26px;
@@ -33,10 +74,12 @@
   }
 
   .project-case {
+    position: absolute;
+    inset: 12px 0 auto;
+    display: grid;
     width: 100%;
     max-width: none;
     min-height: 430px;
-    display: grid;
     grid-template-columns: minmax(0, 1.08fr) minmax(330px, .92fr);
     align-items: stretch;
     gap: 0;
@@ -44,22 +87,20 @@
     background: transparent;
     border: 0;
     border-radius: 0;
-    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
   }
 
   .project-case.is-active {
-    transform: none;
+    position: relative;
+    inset: auto;
+    z-index: 5 !important;
+    pointer-events: auto;
   }
 
-  .project-case.is-active:hover {
-    box-shadow: none;
-    transform: translateY(-2px);
-  }
-
-  .project-case.is-next,
-  .project-case.is-far {
-    transform: translate(32px, 18px) scale(.975);
-  }
+  .project-case.is-next { z-index: 3 !important; }
+  .project-case.is-far { z-index: 2 !important; }
 
   .project-visual {
     position: relative;
@@ -73,12 +114,33 @@
     border: 1px solid var(--line);
     border-radius: 26px;
     box-shadow: 0 24px 58px rgba(20, 43, 88, .16);
-    transform: rotate(-.65deg);
-    transition: transform .3s ease, box-shadow .3s ease;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(42px, 24px) scale(.95) rotate(2deg);
+    transform-origin: center bottom;
+    transition: transform .46s cubic-bezier(.2, .75, .2, 1), opacity .26s ease, box-shadow .3s ease;
   }
 
-  .project-visual:hover {
-    transform: translateY(-4px) rotate(-.15deg);
+  .project-case.is-active .project-visual {
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(0, 0) scale(1) rotate(-.65deg);
+  }
+
+  .project-case.is-next .project-visual {
+    z-index: 4;
+    opacity: .18;
+    transform: translate(28px, 16px) scale(.965) rotate(1.45deg);
+  }
+
+  .project-case.is-far .project-visual {
+    opacity: 0;
+    transform: translate(48px, 28px) scale(.94) rotate(2.2deg);
+  }
+
+  .project-case.is-active .project-visual:hover {
+    transform: translateY(-4px) scale(1) rotate(-.15deg);
     box-shadow: 0 30px 66px rgba(20, 43, 88, .2);
   }
 
@@ -88,7 +150,7 @@
 
   .project-content {
     position: relative;
-    z-index: 4;
+    z-index: 8;
     display: flex;
     min-height: 405px;
     align-self: center;
@@ -136,12 +198,20 @@
     border-bottom-color: rgba(7, 86, 244, .35);
     font-size: .94rem;
   }
+
+  /* Navigation now belongs to the deck, not to the heading. */
+  .project-list > .project-controls {
+    bottom: 10px;
+    left: 0;
+    width: min(560px, 52%);
+    justify-content: center;
+  }
 }
 
 @media (min-width: 761px) and (max-width: 1050px) {
   .project-case {
-    grid-template-columns: minmax(0, 1fr) minmax(300px, .86fr);
     min-height: 390px;
+    grid-template-columns: minmax(0, 1fr) minmax(290px, .88fr);
   }
 
   .project-list::before,
@@ -150,27 +220,110 @@
   }
 
   .project-visual {
-    width: min(485px, calc(100% - 34px));
-    height: 360px;
+    width: min(485px, calc(100% - 32px));
+    height: 350px;
   }
 
   .project-content {
-    min-height: 360px;
-    padding-left: 38px;
+    min-height: 350px;
+    padding: 24px 0 24px 34px;
   }
 
   .project-content h3 {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-size: clamp(1.75rem, 3vw, 2.45rem);
   }
 
   .project-content > p:not(.project-type) {
-    font-size: .98rem;
+    font-size: .96rem;
+    line-height: 1.62;
+  }
+
+  .project-scope {
+    margin-top: 20px;
+  }
+
+  .project-link {
+    margin-top: 20px;
+  }
+
+  .project-list > .project-controls {
+    width: 52%;
   }
 }
 
-@media (max-width: 760px) {
-  .project-list,
+/* Tablet: stack the copy below the deck before the narrow mobile layout kicks in. */
+@media (min-width: 621px) and (max-width: 760px) {
+  .projects-heading-side {
+    display: block;
+  }
+
+  .project-list {
+    width: 100%;
+    margin: 0;
+    padding: 8px 0 72px;
+  }
+
   .project-case {
-    /* Keep the compact stacked deck already tuned for mobile. */
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .project-visual {
+    height: clamp(280px, 55vw, 350px);
+    flex-basis: auto;
+  }
+
+  .project-content {
+    padding: 26px 24px 22px;
+  }
+
+  .project-list > .project-controls {
+    bottom: 8px;
+    left: 0;
+    width: min(600px, 100%);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 620px) {
+  .projects-heading-side {
+    display: block;
+  }
+
+  .projects-heading-side > p {
+    margin-bottom: 0;
+  }
+
+  .project-list {
+    padding-bottom: 78px;
+  }
+
+  .project-list > .project-controls {
+    bottom: 12px;
+    left: 0;
+    width: calc(100% - 28px);
+    justify-content: center;
+  }
+
+  .project-content {
+    transition-duration: .1s;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-list {
+    padding-bottom: 72px;
+  }
+
+  .project-list > .project-controls {
+    bottom: 8px;
+    width: calc(100% - 28px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-visual,
+  .project-content {
+    transition: none !important;
   }
 }
