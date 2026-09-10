@@ -1,6 +1,6 @@
 const projectShowcaseStyles = document.createElement('link');
 projectShowcaseStyles.rel = 'stylesheet';
-projectShowcaseStyles.href = 'projects-showcase.css?v=20260910-1';
+projectShowcaseStyles.href = 'projects-showcase.css?v=20260910-2';
 document.head.appendChild(projectShowcaseStyles);
 
 const menuButton = document.querySelector('.menu-button');
@@ -102,8 +102,13 @@ document.querySelector('#contact-form').addEventListener('submit', (event) => {
 const projectTrack = document.querySelector('#project-track');
 const projectPrev = document.querySelector('[data-project-prev]');
 const projectNext = document.querySelector('[data-project-next]');
+const projectControls = projectPrev?.closest('.project-controls');
 
 if (projectTrack && projectPrev && projectNext) {
+  if (projectControls && projectControls.parentElement !== projectTrack) {
+    projectTrack.appendChild(projectControls);
+  }
+
   const projectCards = [...projectTrack.querySelectorAll('.project-case')];
   let activeProject = 0;
 
