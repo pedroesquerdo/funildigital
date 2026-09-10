@@ -38,6 +38,7 @@
 .hero-visual { height: 520px; }
 .hero-project-card { width: min(505px, calc(100% - 18px)); border-radius: 26px; }
 .hero-project-backdrop { inset: 30px 5px 30px 38px; border-radius: 34px; opacity: .12; }
+.hero-project-meta span:last-child { display: none; }
 .platforms { min-height: 72px; border-top: 1px solid rgba(220, 227, 238, .72); }
 
 /* SERVICES */
@@ -59,13 +60,13 @@
 }
 .service-item {
   min-height: 245px;
-  padding: 30px 68px 30px 30px;
+  padding: 30px;
   border: 1px solid var(--line);
   border-radius: 20px;
   transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
 .service-item:hover { transform: translateY(-3px); border-color: #c7d4e8; box-shadow: 0 16px 36px rgba(20, 43, 88, .08); }
-.service-item > span { top: 30px; right: 28px; }
+.service-item > span { display: none; }
 .service-item h3 { margin-top: 38px; }
 
 /* PROJECTS */
@@ -98,8 +99,8 @@
 .why-copy { max-width: 620px; }
 .why-copy > p { font-size: 1.04rem; }
 .benefits { margin-top: 30px; }
-.benefits > div { grid-template-columns: 42px 1fr; padding: 17px 0; }
-.benefits b { font-size: .8rem; }
+.benefits > div { grid-template-columns: 1fr; padding: 17px 0; }
+.benefits b { display: none; }
 .benefits strong { margin-bottom: 2px; }
 
 /* FAQ — keep visually quieter between authority and CTA */
@@ -157,7 +158,7 @@ footer { padding-top: 32px; background: #fff; }
   .platforms { min-height: 66px; }
   .service-primary { padding: 36px 30px; border-radius: 24px; }
   .service-grid { grid-template-columns: 1fr; }
-  .service-item { min-height: 0; padding: 28px 62px 28px 28px; }
+  .service-item { min-height: 0; padding: 28px; }
   .service-item h3 { margin: 30px 0 10px; }
   .method-grid { gap: 46px; }
   .steps li { grid-template-columns: 44px 1fr; padding: 21px 0; }
@@ -191,8 +192,7 @@ footer { padding-top: 32px; background: #fff; }
   .service-primary h3 { font-size: 2rem; }
   .service-primary-copy .service-price { margin-top: 26px; }
   .service-grid { gap: 10px; }
-  .service-item { padding: 25px 54px 24px 24px; border-radius: 17px; }
-  .service-item > span { top: 25px; right: 23px; }
+  .service-item { padding: 25px 24px 24px; border-radius: 17px; }
   .service-item h3 { margin-top: 26px; font-size: 1.55rem; }
 
   .method { padding-block: 74px; }
