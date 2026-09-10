@@ -99,22 +99,36 @@ const projectPrev = document.querySelector('[data-project-prev]');
 const projectNext = document.querySelector('[data-project-next]');
 
 if (projectTrack && projectPrev && projectNext) {
-  const projectStep = () => {
-    const card = projectTrack.querySelector('.project-case');
-    const gap = Number.parseFloat(getComputedStyle(projectTrack).gap) || 0;
-    return card ? card.getBoundingClientRect().width + gap : projectTrack.clientWidth;
-  };
+  const projectCards = [...projectTrack.querySelectorAll('.project-case')];
+  let activeProject = 0;
 
-  const updateProjectControls = () => {
-    const maxScroll = projectTrack.scrollWidth - projectTrack.clientWidth;
-    const hasMultipleProjects = projectTrack.querySelectorAll('.project-case').length > 1;
-    projectPrev.disabled = !hasMultipleProjects || projectTrack.scrollLeft <= 2;
-    projectNext.disabled = !hasMultipleProjects || projectTrack.scrollLeft >= maxScroll - 2;
+  const updateProjectDeck = () => {
+    projectCards.forEach((card, index) => {
+      const position = (index - activeProject + projectCards.length) % projectCards.length;
+      const isActive = position === 0;
+      card.classList.toggle('is-active', isActive);
+      card.classList.toggle('is-next', position === 1);
+      card.classList.toggle('is-far', position > 1);
+      card.style.zIndex = String(projectCards.length - position);
+
+      if (isActive) {
+        card.removeAttribute('aria-hidden');
+        card.removeAttribute('inert');
+      } else {
+        card.setAttribute('aria-hidden', 'true');
+        card.setAttribute('inert', '');
+      }
+    });
+
+    const hasMultipleProjects = projectCards.length > 1;
+    projectPrev.disabled = !hasMultipleProjects;
+    projectNext.disabled = !hasMultipleProjects;
+    projectTrack.setAttribute('aria-label', `Projetos da Funil Digital. Projeto ${activeProject + 1} de ${projectCards.length}.`);
   };
 
   const moveProjects = (direction) => {
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    projectTrack.scrollBy({ left: projectStep() * direction, behavior: reducedMotion ? 'auto' : 'smooth' });
+    activeProject = (activeProject + direction + projectCards.length) % projectCards.length;
+    updateProjectDeck();
   };
 
   projectPrev.addEventListener('click', () => moveProjects(-1));
@@ -124,7 +138,5 @@ if (projectTrack && projectPrev && projectNext) {
     event.preventDefault();
     moveProjects(event.key === 'ArrowRight' ? 1 : -1);
   });
-  projectTrack.addEventListener('scroll', updateProjectControls, { passive: true });
-  window.addEventListener('resize', updateProjectControls);
-  updateProjectControls();
+  updateProjectDeck();
 }
