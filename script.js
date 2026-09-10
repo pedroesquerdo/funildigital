@@ -1,3 +1,8 @@
+const projectShowcaseStyles = document.createElement('link');
+projectShowcaseStyles.rel = 'stylesheet';
+projectShowcaseStyles.href = 'projects-showcase.css?v=20260910-1';
+document.head.appendChild(projectShowcaseStyles);
+
 const menuButton = document.querySelector('.menu-button');
 const menu = document.querySelector('#menu-principal');
 const cookieBanner = document.querySelector('#cookie-banner');
