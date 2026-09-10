@@ -248,24 +248,49 @@ em { color: var(--blue); font-style: normal; }
 .project-controls button:disabled { cursor: not-allowed; opacity: .38; }
 .project-list {
   position: relative;
-  width: min(760px, calc(100% - 24px));
-  height: 640px;
+  isolation: isolate;
+  width: min(610px, calc(100% - 24px));
+  height: 535px;
   margin: -12px 0 -8px;
   padding-top: 12px;
+}
+.project-list::before,
+.project-list::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 20px;
+  width: min(520px, calc(100% - 48px));
+  height: 478px;
+  pointer-events: none;
+  border-radius: 24px;
+}
+.project-list::before {
+  z-index: 0;
+  background: linear-gradient(145deg, var(--blue), #7838d8 58%, var(--pink));
+  opacity: .13;
+  transform: translate(28px, 15px) rotate(2.8deg);
+}
+.project-list::after {
+  z-index: 1;
+  background: rgba(255, 255, 255, .92);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 44px rgba(20, 43, 88, .1);
+  transform: translate(14px, 7px) rotate(1.25deg);
 }
 .project-case {
   position: absolute;
   top: 12px;
   left: 0;
   display: flex;
-  width: min(680px, calc(100% - 54px));
+  width: min(520px, calc(100% - 48px));
   flex-direction: column;
   min-width: 0;
   overflow: hidden;
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: 28px;
-  box-shadow: 0 28px 70px rgba(20, 43, 88, .16);
+  border-radius: 24px;
+  box-shadow: 0 24px 58px rgba(20, 43, 88, .15);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -282,9 +307,9 @@ em { color: var(--blue); font-style: normal; }
 }
 .project-case.is-next {
   z-index: 2;
-  opacity: .72;
-  visibility: visible;
-  transform: translate(40px, 24px) scale(.97) rotate(1.6deg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(28px, 18px) scale(.96) rotate(1.6deg);
 }
 .project-case.is-far {
   z-index: 1;
@@ -292,7 +317,7 @@ em { color: var(--blue); font-style: normal; }
   visibility: hidden;
   transform: translate(58px, 30px) scale(.94) rotate(2.4deg);
 }
-.project-case.is-active:hover { box-shadow: 0 34px 78px rgba(20, 43, 88, .22); transform: translate(0, -4px) scale(1) rotate(-.2deg); }
+.project-case.is-active:hover { box-shadow: 0 30px 66px rgba(20, 43, 88, .2); transform: translate(0, -4px) scale(1) rotate(-.2deg); }
 .project-visual {
   display: grid;
   min-width: 0;
@@ -312,7 +337,7 @@ em { color: var(--blue); font-style: normal; }
 .project-visual:hover img { transform: scale(1.018); }
 .project-content {
   display: grid;
-  min-height: 220px;
+  min-height: 195px;
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas:
     "type link"
@@ -321,7 +346,7 @@ em { color: var(--blue); font-style: normal; }
     "scope scope";
   align-content: start;
   column-gap: 24px;
-  padding: 25px 28px 27px;
+  padding: 21px 24px 23px;
 }
 .project-type {
   grid-area: type;
@@ -332,9 +357,9 @@ em { color: var(--blue); font-style: normal; }
   letter-spacing: .12em;
   text-transform: uppercase;
 }
-.project-content h3 { grid-area: title; margin: 13px 0 10px; font-family: "Manrope", sans-serif; font-size: clamp(1.7rem, 3vw, 2.2rem); line-height: 1.08; }
+.project-content h3 { grid-area: title; margin: 11px 0 8px; font-family: "Manrope", sans-serif; font-size: clamp(1.55rem, 2.6vw, 1.9rem); line-height: 1.08; }
 .project-content > p { grid-area: description; margin: 0; color: var(--muted); font-size: .96rem; }
-.project-scope { display: flex; grid-area: scope; flex-wrap: wrap; gap: 0; margin: 18px 0 0; padding: 15px 0 0; border-top: 1px solid var(--line); list-style: none; }
+.project-scope { display: flex; grid-area: scope; flex-wrap: wrap; gap: 0; margin: 15px 0 0; padding: 13px 0 0; border-top: 1px solid var(--line); list-style: none; }
 .project-scope li { display: inline-flex; align-items: center; color: #66738a; font-size: .75rem; font-weight: 700; letter-spacing: .035em; text-transform: uppercase; }
 .project-scope li:not(:last-child)::after { content: "·"; margin: 0 8px; color: #aab4c4; }
 .project-link { display: inline-flex; grid-area: link; width: fit-content; min-height: 30px; align-items: flex-start; gap: 7px; color: var(--ink); border-bottom: 1px solid var(--ink); font-size: .88rem; font-weight: 800; }
@@ -564,9 +589,9 @@ footer { padding: 35px 0 22px; border-top: 1px solid var(--line); }
 }
 
 @media (max-width: 760px) {
-  .project-list { width: calc(100% - 10px); height: 630px; }
-  .project-case { width: calc(100% - 34px); }
-  .project-case.is-next { transform: translate(26px, 20px) scale(.97) rotate(1.35deg); }
+  .project-list { width: min(610px, calc(100% - 10px)); height: 535px; }
+  .project-case { width: min(520px, calc(100% - 42px)); }
+  .project-case.is-next { transform: translate(24px, 16px) scale(.96) rotate(1.35deg); }
   .project-content { min-height: 0; }
 }
 
@@ -603,11 +628,15 @@ footer { padding: 35px 0 22px; border-top: 1px solid var(--line); }
   .projects { padding-top: 28px; }
   .projects-heading { margin-bottom: 42px; }
   .projects-heading-side { align-items: flex-start; flex-direction: column; }
-  .project-list { width: 100%; height: clamp(490px, 110vw, 590px); margin-inline: 0; }
-  .project-case { width: calc(100% - 24px); border-radius: 22px; }
-  .project-case.is-next { transform: translate(18px, 16px) scale(.975) rotate(1.15deg); }
-  .project-content { min-height: 0; padding: 22px 22px 24px; }
-  .project-content h3 { font-size: 1.65rem; }
+  .project-list { width: 100%; height: clamp(455px, 116vw, 520px); margin-inline: 0; }
+  .project-list::before,
+  .project-list::after { top: 25px; left: 12px; width: min(460px, calc(100% - 42px)); height: calc(100% - 54px); border-radius: 21px; }
+  .project-list::before { transform: translate(19px, 12px) rotate(2.3deg); }
+  .project-list::after { transform: translate(10px, 6px) rotate(1.1deg); }
+  .project-case { width: min(460px, calc(100% - 42px)); border-radius: 21px; }
+  .project-case.is-next { transform: translate(17px, 14px) scale(.965) rotate(1.15deg); }
+  .project-content { min-height: 0; padding: 19px 19px 21px; }
+  .project-content h3 { font-size: 1.5rem; }
   .project-content > p { font-size: .92rem; }
   .project-scope { margin-top: 16px; padding-top: 13px; }
   .method-grid, .why-grid, .faq-grid { gap: 45px; }
