@@ -1,0 +1,229 @@
+/* Visual polish pass — header, hero, services, method, founder, contact and footer. */
+
+/* HEADER */
+.site-header {
+  height: 82px;
+  background: rgba(255, 255, 255, .88);
+  border-bottom-color: rgba(220, 227, 238, .72);
+  backdrop-filter: blur(20px) saturate(150%);
+}
+.brand img { width: 205px; }
+.nav nav { gap: 28px; font-size: .92rem; }
+.nav-cta {
+  min-height: 42px;
+  padding-inline: 18px;
+  background: var(--ink);
+  box-shadow: 0 8px 22px rgba(16, 24, 40, .12);
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.nav-cta:hover { transform: translateY(-1px); background: var(--blue); box-shadow: 0 10px 24px rgba(7, 86, 244, .2); }
+
+/* HERO */
+.hero { padding-top: 118px; background: linear-gradient(180deg, #fff 0%, #f8faff 72%, #f5f8ff 100%); }
+.hero-grid {
+  min-height: 660px;
+  grid-template-columns: 1.06fr .94fr;
+  gap: 56px;
+  padding: 54px 0 62px;
+}
+.hero-copy { max-width: 670px; }
+.hero .eyebrow { margin-bottom: 20px; }
+.hero h1 { max-width: 660px; margin-bottom: 24px; font-size: clamp(3.45rem, 6.1vw, 5.85rem); }
+.hero .lead { max-width: 610px; font-size: 1.14rem; line-height: 1.68; }
+.actions { margin-top: 30px; gap: 22px; }
+.primary { box-shadow: 0 12px 28px rgba(7, 86, 244, .23); }
+.proof { gap: 24px; margin-top: 46px; padding-top: 22px; }
+.proof strong { font-size: .92rem; }
+.proof span { margin-top: 2px; }
+.hero-visual { height: 520px; }
+.hero-project-card { width: min(505px, calc(100% - 18px)); border-radius: 26px; }
+.hero-project-backdrop { inset: 30px 5px 30px 38px; border-radius: 34px; opacity: .12; }
+.platforms { min-height: 72px; border-top: 1px solid rgba(220, 227, 238, .72); }
+
+/* SERVICES */
+.services { background: #fff; }
+.services .heading { margin-bottom: 50px; }
+.service-primary {
+  gap: 62px;
+  padding: 48px 50px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, var(--blue), #0b4dda 64%, #173fb2);
+  box-shadow: 0 22px 54px rgba(7, 86, 244, .18);
+}
+.service-primary h3 { letter-spacing: -.05em; }
+.service-primary-details li { padding-block: 12px; }
+.service-grid {
+  gap: 14px;
+  margin-top: 18px;
+  border: 0;
+}
+.service-item {
+  min-height: 245px;
+  padding: 30px 68px 30px 30px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.service-item:hover { transform: translateY(-3px); border-color: #c7d4e8; box-shadow: 0 16px 36px rgba(20, 43, 88, .08); }
+.service-item > span { top: 30px; right: 28px; }
+.service-item h3 { margin-top: 38px; }
+
+/* PROJECTS */
+.projects { padding-bottom: 104px; }
+.projects-heading h2 { max-width: 760px; }
+
+/* METHOD */
+.method { background: linear-gradient(145deg, #071b4b 0%, #0a2055 55%, #071942 100%); }
+.method-grid { grid-template-columns: .78fr 1.22fr; gap: 84px; }
+.method-intro { position: sticky; top: 126px; align-self: start; }
+.method-intro > p:not(.eyebrow):not(.method-timing) { max-width: 480px; }
+.method-intro .method-timing {
+  max-width: 455px;
+  margin-top: 28px;
+  padding: 17px 18px;
+  background: rgba(255, 255, 255, .06);
+  border-color: rgba(255, 255, 255, .12);
+}
+.steps li { grid-template-columns: 52px 1fr; gap: 18px; padding: 24px 0; }
+.steps h3 { max-width: 620px; margin: 4px 0 6px; font-size: 1.34rem; }
+.steps p { max-width: 660px; }
+
+/* WHO WE ARE */
+.why-grid { grid-template-columns: .84fr 1.16fr; gap: 82px; }
+.founder-panel {
+  height: 545px;
+  border-radius: 30px;
+  box-shadow: 0 24px 56px rgba(20, 43, 88, .14);
+}
+.why-copy { max-width: 620px; }
+.why-copy > p { font-size: 1.04rem; }
+.benefits { margin-top: 30px; }
+.benefits > div { grid-template-columns: 42px 1fr; padding: 17px 0; }
+.benefits b { font-size: .8rem; }
+.benefits strong { margin-bottom: 2px; }
+
+/* FAQ — keep visually quieter between authority and CTA */
+.faq { padding-top: 78px; padding-bottom: 92px; }
+.faq-grid { gap: 78px; }
+.faq summary { padding-block: 21px; }
+
+/* CONTACT / CTA */
+.contact { padding: 88px 0; }
+.contact-card {
+  gap: 64px;
+  padding: 58px 60px;
+  border-radius: 32px;
+  box-shadow: 0 28px 70px rgba(7, 27, 75, .16);
+}
+.contact-copy { align-self: center; }
+.contact-copy h2 { max-width: 590px; }
+.contact form { padding: 26px; border-radius: 21px; box-shadow: 0 14px 34px rgba(0, 0, 0, .09); }
+.contact input, .contact select { background: #fbfcff; }
+
+/* FOOTER */
+footer { padding-top: 32px; background: #fff; }
+.footer-main { min-height: 68px; }
+.footer-brand img { width: 190px; }
+.footer-main p { font-size: .92rem; }
+.footer-legal { margin-top: 18px; padding-top: 17px; }
+
+@media (max-width: 1050px) {
+  .hero-grid { gap: 34px; }
+  .hero h1 { font-size: clamp(3rem, 6.7vw, 4.8rem); }
+  .hero-visual { height: 475px; }
+  .service-primary { gap: 44px; }
+  .method-grid, .why-grid { gap: 58px; }
+}
+
+@media (max-width: 950px) {
+  .site-header { height: 80px; }
+  .nav nav { inset: 80px 0 auto; }
+  .hero { padding-top: 98px; }
+  .hero-grid { min-height: auto; padding-top: 34px; }
+  .hero-copy { max-width: 760px; padding-top: 34px; }
+  .hero h1 { max-width: 760px; }
+  .hero .lead { max-width: 700px; }
+  .hero-visual { width: min(620px, 100%); height: 500px; margin-inline: auto; }
+  .service-primary { padding: 42px; }
+  .method-intro { position: static; }
+  .founder-panel { width: min(520px, 100%); height: 500px; }
+  .why-copy { max-width: none; }
+}
+
+@media (max-width: 760px) {
+  .section { padding-block: 84px; }
+  .hero-grid { padding-bottom: 50px; }
+  .hero-visual { height: 445px; }
+  .platforms { min-height: 66px; }
+  .service-primary { padding: 36px 30px; border-radius: 24px; }
+  .service-grid { grid-template-columns: 1fr; }
+  .service-item { min-height: 0; padding: 28px 62px 28px 28px; }
+  .service-item h3 { margin: 30px 0 10px; }
+  .method-grid { gap: 46px; }
+  .steps li { grid-template-columns: 44px 1fr; padding: 21px 0; }
+  .founder-panel { height: 460px; }
+  .contact-card { padding: 44px 34px; }
+}
+
+@media (max-width: 620px) {
+  .site-header { height: 74px; }
+  .brand img { width: 166px; }
+  .menu-button { width: 44px; height: 44px; }
+  .nav nav { inset: 74px 0 auto; max-height: calc(100vh - 74px); padding-top: 16px; }
+  .hero { padding-top: 82px; }
+  .hero-grid { padding-top: 24px; padding-bottom: 38px; }
+  .hero-copy { padding-top: 24px; }
+  .hero .eyebrow { margin-bottom: 16px; }
+  .hero h1 { margin-bottom: 18px; font-size: clamp(2.55rem, 12.6vw, 3.2rem); line-height: 1.02; }
+  .hero .lead { font-size: 1rem; line-height: 1.6; }
+  .actions { margin-top: 26px; }
+  .proof { margin-top: 34px; padding-top: 18px; }
+  .proof strong { font-size: .85rem; }
+  .proof span { font-size: .76rem; }
+  .hero-visual { height: 390px; }
+  .hero-project-card { border-radius: 20px; }
+  .hero-project-backdrop { border-radius: 25px; }
+  .platforms { gap: 18px; min-height: 62px; }
+
+  .section { padding-block: 72px; }
+  .heading { margin-bottom: 38px; }
+  .service-primary { padding: 30px 24px; }
+  .service-primary h3 { font-size: 2rem; }
+  .service-primary-copy .service-price { margin-top: 26px; }
+  .service-grid { gap: 10px; }
+  .service-item { padding: 25px 54px 24px 24px; border-radius: 17px; }
+  .service-item > span { top: 25px; right: 23px; }
+  .service-item h3 { margin-top: 26px; font-size: 1.55rem; }
+
+  .method { padding-block: 74px; }
+  .method-intro .method-timing { margin-top: 24px; }
+  .steps h3 { font-size: 1.15rem; }
+  .steps p { font-size: .9rem; }
+
+  .why-grid { gap: 40px; }
+  .founder-panel { height: min(112vw, 420px); border-radius: 24px; }
+  .founder-panel figcaption { right: 22px; bottom: 20px; left: 22px; }
+  .why-copy > p { font-size: 1rem; }
+  .benefits { margin-top: 25px; }
+  .benefits > div { padding-block: 15px; }
+
+  .faq { padding-top: 64px; padding-bottom: 72px; }
+  .faq-grid { gap: 38px; }
+  .faq summary { padding: 19px 42px 19px 0; font-size: 1rem; }
+
+  .contact { padding: 62px 0; }
+  .contact-card { width: 100%; gap: 32px; padding: 36px 20px; border-radius: 24px; }
+  .contact form { padding: 20px; }
+
+  footer { padding-top: 28px; }
+  .footer-main { gap: 14px; }
+  .footer-brand img { width: 174px; }
+}
+
+@media (max-width: 420px) {
+  .hero-visual { height: 355px; }
+  .hero-project-meta { font-size: .62rem; }
+  .hero-project-caption { min-height: 66px; }
+  .service-primary { padding-inline: 21px; }
+  .contact-card { border-radius: 20px; }
+}
