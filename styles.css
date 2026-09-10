@@ -320,6 +320,8 @@ em { color: var(--blue); font-style: normal; }
 .project-case.is-active:hover { box-shadow: 0 30px 66px rgba(20, 43, 88, .2); transform: translate(0, -4px) scale(1) rotate(-.2deg); }
 .project-visual {
   display: grid;
+  height: 280px;
+  flex: 0 0 280px;
   min-width: 0;
   overflow: hidden;
   place-items: center;
@@ -329,7 +331,7 @@ em { color: var(--blue); font-style: normal; }
 .project-visual img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
   transition: transform .35s ease;
@@ -635,6 +637,7 @@ footer { padding: 35px 0 22px; border-top: 1px solid var(--line); }
   .project-list::after { transform: translate(10px, 6px) rotate(1.1deg); }
   .project-case { width: min(460px, calc(100% - 42px)); border-radius: 21px; }
   .project-case.is-next { transform: translate(17px, 14px) scale(.965) rotate(1.15deg); }
+  .project-visual { height: clamp(190px, 53vw, 280px); flex-basis: clamp(190px, 53vw, 280px); }
   .project-content { min-height: 0; padding: 19px 19px 21px; }
   .project-content h3 { font-size: 1.5rem; }
   .project-content > p { font-size: .92rem; }
