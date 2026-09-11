@@ -227,3 +227,146 @@ footer { padding-top: 32px; background: #fff; }
   .service-primary { padding-inline: 21px; }
   .contact-card { border-radius: 20px; }
 }
+
+/* RESPONSIVE HARDENING — tablets, small phones and dynamic viewport sizes */
+@media (max-width: 1080px) {
+  .menu-button { display: block; }
+  .nav nav {
+    position: fixed;
+    inset: 82px 0 auto;
+    display: none;
+    max-height: calc(100dvh - 82px);
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 22px 24px 30px;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 20px 35px rgba(15, 30, 60, .1);
+  }
+  .nav nav.open { display: flex; }
+  .nav nav a { min-height: 48px; display: flex; align-items: center; padding-inline: 12px; }
+  .nav-cta { justify-content: center; margin-top: 8px; }
+
+  .hero-grid { gap: clamp(28px, 4vw, 42px); }
+  .hero-project-card { max-width: 100%; }
+
+  .projects-heading { gap: 28px; }
+  .project-list > .project-controls { max-width: 560px; }
+
+  .contact-card { gap: clamp(36px, 5vw, 56px); padding-inline: clamp(38px, 5vw, 54px); }
+}
+
+@media (max-width: 950px) {
+  .nav nav { inset: 80px 0 auto; max-height: calc(100dvh - 80px); }
+
+  .hero-grid,
+  .method-grid,
+  .why-grid,
+  .faq-grid,
+  .contact-card { min-width: 0; }
+
+  .hero-visual,
+  .founder-panel,
+  .contact form { min-width: 0; }
+
+  .service-primary { gap: 32px; }
+  .projects-heading-side { min-width: 0; }
+}
+
+@media (max-width: 760px) {
+  .container { width: min(100% - 32px, 1180px); }
+  .section { padding-block: clamp(68px, 10vw, 82px); }
+
+  .hero h1,
+  h2 { overflow-wrap: anywhere; }
+  .hero-visual { width: 100%; }
+  .hero-project-card { width: calc(100% - 10px); }
+  .hero-project-backdrop { right: 4px; left: 24px; }
+
+  .projects-heading-side { width: 100%; }
+  .project-list { max-width: 100%; }
+  .project-list > .project-controls { width: 100%; max-width: 600px; }
+
+  .contact-copy,
+  .contact form { width: 100%; }
+  .contact address a { max-width: 100%; overflow-wrap: anywhere; }
+  .contact-response { max-width: 100%; white-space: normal; }
+
+  .cookie-banner {
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    width: auto;
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .nav nav { inset: 74px 0 auto; max-height: calc(100dvh - 74px); }
+
+  .hero-grid { row-gap: 18px; }
+  .hero-project-caption { gap: 10px; }
+  .hero-project-caption strong { font-size: 1rem; }
+  .hero-project-caption > span { width: 34px; height: 34px; }
+
+  .proof { width: 100%; }
+  .proof div { min-width: 0; }
+  .proof strong,
+  .proof span { overflow-wrap: anywhere; }
+
+  .service-button { width: 100%; text-align: center; }
+  .steps li { grid-template-columns: 38px minmax(0, 1fr); gap: 14px; }
+
+  .founder-panel { width: 100%; aspect-ratio: 4 / 5; height: auto; max-height: 420px; }
+
+  .contact-card { padding-inline: 18px; }
+  .contact form { padding: 18px; }
+  .contact input,
+  .contact select { min-width: 0; font-size: 16px; }
+
+  .cookie-actions { flex-wrap: wrap; }
+  .cookie-actions button { min-width: 120px; }
+  .cookie-pending .whatsapp-float { bottom: min(270px, 42dvh); }
+}
+
+@media (max-width: 420px) {
+  .container { width: min(100% - 24px, 1180px); }
+  .brand { min-width: 0; }
+  .brand img { width: 154px; }
+
+  .hero h1 { font-size: clamp(2.35rem, 12.4vw, 2.9rem); }
+  .hero-visual { height: clamp(315px, 90vw, 350px); }
+  .hero-project-meta { padding-inline: 12px; }
+  .hero-project-card > img { width: calc(100% - 14px); margin-inline: 7px; }
+  .platforms { padding-right: 12px; }
+
+  .service-primary,
+  .service-item,
+  .contact-card,
+  .contact form { min-width: 0; }
+
+  .steps li { grid-template-columns: 32px minmax(0, 1fr); gap: 12px; }
+  .steps > li > span { font-size: .7rem; letter-spacing: .08em; }
+
+  .founder-panel figcaption { right: 18px; bottom: 17px; left: 18px; }
+
+  .faq summary { padding-right: 36px; }
+  .faq summary::after { right: 2px; }
+
+  .cookie-banner { padding: 16px; border-radius: 16px; }
+  .cookie-actions { display: grid; grid-template-columns: 1fr; }
+  .cookie-actions button { width: 100%; }
+}
+
+@media (max-width: 350px) {
+  .hero .eyebrow,
+  .service-label,
+  .project-type { letter-spacing: .07em; }
+  .hero h1 { font-size: 2.28rem; }
+  .hero-visual { height: 300px; }
+  .contact-card { padding-inline: 14px; }
+  .contact form { padding: 16px 14px; }
+}
