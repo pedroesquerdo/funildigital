@@ -5,7 +5,7 @@ document.head.appendChild(projectShowcaseStyles);
 
 const visualPolishStyles = document.createElement('link');
 visualPolishStyles.rel = 'stylesheet';
-visualPolishStyles.href = 'visual-polish.css?v=20260910-1';
+visualPolishStyles.href = 'visual-polish.css?v=20260910-2';
 document.head.appendChild(visualPolishStyles);
 
 const menuButton = document.querySelector('.menu-button');
@@ -36,7 +36,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 950) setMenu(false);
+  if (window.innerWidth > 1080) setMenu(false);
 });
 
 function loadAnalytics() {
