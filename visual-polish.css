@@ -265,7 +265,10 @@ footer { padding-top: 32px; background: #fff; }
   .method-grid,
   .why-grid,
   .faq-grid,
-  .contact-card { min-width: 0; }
+  .contact-card {
+    min-width: 0;
+    grid-template-columns: 1fr;
+  }
 
   .hero-visual,
   .founder-panel,
